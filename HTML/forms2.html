@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://www.reddit.com/search">
+        <p><label for="q">What are you looking for?</label>
+            <input type="text" name="q" placeholder="Search">
+        <button>Search Reddit</button></p>   
+    </form>
+    <form action="http://www.google.com/search">
+        <p><label for="q">What are you looking for?</label>
+            <input type="text" name="q" placeholder="Search">
+        <button>Search Google</button></p>   
+    </form>
+    <form action="">
+        <input type="checkbox" name="agree_check" id="agree">
+        <label for="agree">I agree</label>
+        <p>Radio Buttons</p>
+        <label for="a">a</label>
+        <input type="radio" name="option" id="a" value="a">
+        <label for="b">b</label>
+        <input type="radio" name="option" id="b" value="b">
+        <label for="c">c</label>
+        <input type="radio" name="option" id="c" value="c">
+</form>
+<form action="">
+    <label for="meal"></label>
+    <select name="meal" id="meal">
+        <option value="" selected>Choose an option</option>
+        <option value="fish">Fish</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="meat">Meat</option>
+    </select>
+</form>
+<p>
+    <label for="chees">Amount of cheese:</label>
+    <input type="range" id="cheese" min="0" max="10" name="cheeseQty" step="2" value="2">
+</p>
+<button>submit</button>
+<p>
+    <label for="requests">Any special request?</label>
+    <p>
+        <textarea id="request" rows="10" cols="10" name="requests" minlength="50" maxlength="150"></textarea>
+    </p>
+</p>
+</body>
+</html>
