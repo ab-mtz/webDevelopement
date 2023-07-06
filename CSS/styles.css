@@ -20,9 +20,11 @@ body {
 
 button {
     color:aliceblue;
-    background-color: none;
+    background-color: black;
     border-radius: 1rem;
-    
+}
+button:hover {
+    font-weight: bold;
 }
 section {
     background: darkkhaki;
@@ -31,4 +33,52 @@ p{
     line-height: 1.5;
     text-align: justify;
     letter-spacing: 5cap;
+}
+/* Descendant selector */
+p a {
+    color:blueviolet;
+}
+
+/*Using ID*/
+#btn2 {
+    background-color: aliceblue;
+    color: blue;
+}
+/* Selector class  */
+.tag {
+    background-color: brown;
+}
+
+/* Adjacent selector */
+h2 + button {
+    font-weight: bold;
+}
+
+
+/* Diret child */
+div > p {
+    color: chartreuse;
+}
+
+/* Attribute selector */
+input[type="text"] {
+    width 300px;
+    color: yellow;
+}
+
+/* Pseudo Classes 
+:active
+:checked
+:first
+:first-child
+:hover
+:not()
+:nth-child()
+:nth-of-type()   */
+
+/* Pseudo Elements
+::first-letter
+*/
+p::selection {
+    color:#0084ff;
 }
