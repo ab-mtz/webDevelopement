@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study time tracker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Study Time Tracker</h1>
+    <hr>
     <section>        
         <h3>Pattern of study</h3>
+        <hr>
         <p>
-            <label for="study">Study time</label><input name="study" type="number" step="5" min="5" max="60">
+            <label for="study">Study time</label><input id="study" name="study" type="number" step="5" min="5" max="60">
         </p>
         <p>
-            <label for="break">Break time</label><input name="break" type="number" step="5" min="5" max="60">
+            <label for="break">Break time</label><input id="break" name="break" type="number" step="5" min="5" max="60">
         </p>
         <p>
-            <label for="times">x times</label><input name="times" type="number" step="1" min="1" max="50">
+            <label for="times">x times</label><input id="times" name="times" type="number" step="1" min="1" max="50">
         </p>
         <p>
-            <label for="pause">Pause time</label><input name="pause" type="number" step="5" min="5" max="60">
+            <label for="pause">Pause time</label><input id="pause" name="pause" type="number" step="5" min="5" max="60">
         </p>
         <button>Start</button>
     </section>
