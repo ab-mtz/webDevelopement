@@ -1,27 +1,47 @@
 * {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #ADE25D;
+    font-family: 'Montserrat', sans-serif;
+    
+    color: hsl(83, 100%, 96%);
 }
 body {
-    margin: none;
-    background-color: #3B7080;
-}
-
-section {
-    display: flexbox;
+    margin: none a;
+    background-color: #031920;
     
 }
-p {
-    position: center;
-    border-style: groove;
-    border-color: #CFFFB3;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
+
+h1 {
+    display: contents;
+    align-content: center;
+    position: fixed;
+    margin: 1rem auto;
+    margin-bottom: 1.5rem;
+    
 }
+section {
+    
+    
+}
+p { 
+    margin: 0rem 0.3rem;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+} 
 input {
-    background-color: #FCEC52;
+    font-size: large;
+    background-color: hwb(34 18% 7%);
+    width: 180px;
     margin: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    color: #3B7080;
+    padding: 1rem;
+    /* opacity: 0.8; */
+    border-radius: 1.5rem;
+    border:none;
     text-align: center;
+}
+
+input:hover {
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.4em hwb(34 18% 7%);
 }
