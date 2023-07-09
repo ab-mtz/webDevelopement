@@ -5,10 +5,84 @@ h1 {
     text-align: center;
 }
 #container {
+    display: flex; /* Starting Flex box*/
+
+    /* flex-direction: row; IT's the default direction */
+    /* flex-direction: row-reverse;  Opposite direction */
+    /* flex-direction: column; Up to down*/
+    /* flex-direction: column-reverse; */
+    /* justify-content: center; */
+    /* justify-content: space-around; */
+    
+    /* Wraping content  */
+    /* flex-direction: row;
+    justify-content: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap; */
+
+    /*align-items*/
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    align-content: space-between; Only works with flex-wrap propertie */
+    /* flex-wrap: wrap; */
+    
+    
+
     background-color: #003049;
     width: 90%;
-    height: 500px;
+    height: 300px;
+    
     margin: 0 auto;
     border: 5px solid #003049;
 }
 
+#container div { 
+    font-size: 4em;
+    text-align: center;
+    
+    width: 150px;
+    /* max-width: 300px; */
+    height: 150px;
+
+    flex-basis: 150px;
+}
+
+div:nth-of-type(3) {
+    align-self: center;
+    flex-shrink: 3; /* Controls shrink when not enough space, conflict with with flex-wrap*/
+}
+
+div:nth-of-type(1) {
+    flex-grow: 1;
+}
+
+div:nth-of-type(5) {
+    flex-grow: 2;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    border: 5px solid black;
+    height: 200px;
+    display: flex;
+}
+
+main .sidebar {
+    background-color: blueviolet;
+    /* border: 2px solid white; */
+    flex: 1 2 200px;
+}
+
+main .maincontent {
+    background-color: #003049;
+    flex: 2 800px;
+}
+
+@media (widht: 360px) {
+    section {
+        color: red;
+    }
+}
