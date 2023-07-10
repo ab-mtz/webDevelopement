@@ -71,3 +71,22 @@ button {
     width: 1.5em;
     height: 1.5em;
 }
+
+#display {
+    margin-top: 1.3rem;;
+    display: flex;
+    flex-direction: column;
+    /* align-content: left;  */
+}
+
+.times {
+    color: white;
+    font-size: large;
+    background-color: hwb(34 18% 7%);
+    width: 212px;
+    margin: 0.5rem 1rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    border:none;
+    text-align: center;
+}
