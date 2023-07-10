@@ -55,6 +55,12 @@ input {
     text-align: center;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 input:hover {
     box-shadow: 0 0.5em 0.5em -0.4em hwb(34 18% 7%);
 }
