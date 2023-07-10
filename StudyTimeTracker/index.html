@@ -1,54 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study time tracker</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head>
-<body>
-    
-    <h1>Study Time Tracker</h1>
-    <hr>
-    <section>        
-        <h3>Pattern of study</h3>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Study time tracker</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+
+    <body>
+
+        <h1>Study Time Tracker</h1>
         <hr>
-        <section id="interface" name="interface">
-        <p>
-            <label for="study">Study time</label>
-            </p>
-            <p>
-            <input id="study" name="study" type="number" autofocus placeholder="mins" step="5" min="5" max="60">
-        </p>
-        <p>
-            <label for="break">Break time</label>
-        </p>
-        <p>
-            <input id="break" name="break" type="number" step="5" min="5" max="60">
-        </p>
-        <p>
-            <label for="times">x times</label>
-        </p>
-        <p>
-            <input id="times" name="times" type="number" step="1" min="1" max="50">
-        </p>
-        <p>
-            <label for="pause">Pause time</label>
-        </p>
-        <p>
-            <input id="pause" name="pause" type="number" step="5" min="5" max="60">
-        </p>
-        <p><label for="totaltime">Total Time: </label>
-            <a> --:--</a></p>
-        
+        <h3>Pattern of study</h3>
+
+        <hr>
+        <section class="container">
+            <section id="interface" name="interface">
+                <p>
+                    <label>Study time</label>
+                </p>
+                <p>
+                    <input id="study" name="study" type="number" autofocus placeholder="mins" step="5" min="5" max="60">
+                </p>
+                <p>
+                    <label>Break time</label>
+                </p>
+                <p>
+                    <input id="break" name="break" type="number" step="5" min="5" max="60">
+                </p>
+                <p>
+                    <label>x times</label>
+                </p>
+                <p>
+                    <input id="times" name="times" type="number" step="1" min="1" max="50">
+                </p>
+                <p>
+                    <label>Pause time</label>
+                </p>
+                <p>
+                    <input id="pause" name="pause" type="number" step="5" min="5" max="60">
+                </p>
+              
+            </section>
+            <section>
+                <p><label>Total Time: </label>
+                    <a> --:--</a>
+                </p>
+                <button><span class="material-symbols-outlined">
+                        play_circle
+                    </span></button>
+            </section>
         </section>
-    </section>
-    <section>
-        <button><span class="material-symbols-outlined">
-            play_circle
-            </span></button>
-    </section>
-</body>
+        
+    </body>
+
 </html>
