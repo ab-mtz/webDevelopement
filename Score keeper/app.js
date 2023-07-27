@@ -10,16 +10,13 @@ playingTo.addEventListener('input', function () {
     console.log(playingTo.value);
 })
 
-pointToP1.addEventListener('click', function () {
+    pointToP1.addEventListener('click', function () {
 
     pointsP1++;
     document.querySelector('#scoreP1').innerHTML = pointsP1;
+    playingTo.disabled = true;
 
     if (pointsP1 < playingTo.value)
-    {
-        console.log("Point to P1: " + pointsP1);
-    }
-    else
     {
         pointToP1.disabled = true;
         pointToP2.disabled = true;
@@ -27,9 +24,11 @@ pointToP1.addEventListener('click', function () {
     }
 
 })
+
 pointToP2.addEventListener('click', function () {
     pointsP2++;
     document.querySelector('#scoreP2').innerHTML = pointsP2;
+    playingTo.disabled = true;
 
     if (pointsP2 < playingTo.value)
     {
@@ -45,6 +44,7 @@ pointToP2.addEventListener('click', function () {
 
 reset.addEventListener('click', function () {
     console.log("Reset")
+    playingTo.disabled = false;
     pointToP1.disabled = false;
     pointToP2.disabled = false;
     document.querySelector('#scoreP1').innerHTML = 0;
