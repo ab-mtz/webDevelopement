@@ -1,33 +1,42 @@
 const pointToP1 = document.querySelector('#pointToP1')
 const pointToP2 = document.querySelector('#pointToP2')
+const scoreP1 = document.querySelector('#scoreP1')
+const scoreP2 = document.querySelector('#scoreP2')
 const reset = document.querySelector('#reset')
 const playingTo = document.querySelector('#playingTo')
 
 let pointsP1 = 0;
 let pointsP2 = 0;
+let winningScore = 0;
 
 playingTo.addEventListener('input', function () {
     console.log(playingTo.value);
+    winningScore = parseInt(playingTo.value);
 })
 
-    pointToP1.addEventListener('click', function () {
+pointToP1.addEventListener('click', function () {
 
     pointsP1++;
-    document.querySelector('#scoreP1').innerHTML = pointsP1;
+    scoreP1.textContent = pointsP1;
     playingTo.disabled = true;
 
     if (pointsP1 < playingTo.value)
     {
+        console.log("Point to P1: " + pointsP1);
+    }
+    else
+    {
         pointToP1.disabled = true;
         pointToP2.disabled = true;
-        console.log("Player 1 Wins")
+        scoreP1.classList.add('winner');
+        scoreP2.classList.add('loser');
     }
 
 })
 
 pointToP2.addEventListener('click', function () {
     pointsP2++;
-    document.querySelector('#scoreP2').innerHTML = pointsP2;
+    scoreP2.textContent = pointsP2;
     playingTo.disabled = true;
 
     if (pointsP2 < playingTo.value)
@@ -38,7 +47,8 @@ pointToP2.addEventListener('click', function () {
     {
         pointToP1.disabled = true;
         pointToP2.disabled = true;
-        console.log("Player 2 Wins")
+        scoreP2.classList.add('winner');
+        scoreP1.classList.add('loser');
     }
 })
 
@@ -47,8 +57,10 @@ reset.addEventListener('click', function () {
     playingTo.disabled = false;
     pointToP1.disabled = false;
     pointToP2.disabled = false;
-    document.querySelector('#scoreP1').innerHTML = 0;
-    document.querySelector('#scoreP2').innerHTML = 0;
+    scoreP1.textContent = 0;
+    scoreP2.textContent = 0;
     pointsP1 = 0;
     pointsP2 = 0;
+    scoreP2.classList.remove('winner', 'loser');
+    scoreP1.classList.remove('winner', 'loser');
 })
