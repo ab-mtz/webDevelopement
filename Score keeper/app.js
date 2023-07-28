@@ -28,8 +28,8 @@ pointToP1.addEventListener('click', function () {
     {
         pointToP1.disabled = true;
         pointToP2.disabled = true;
-        scoreP1.classList.add('winner');
-        scoreP2.classList.add('loser');
+        scoreP1.classList.add('has-text-success');
+        scoreP2.classList.add('has-text-danger');
     }
 
 })
@@ -47,8 +47,8 @@ pointToP2.addEventListener('click', function () {
     {
         pointToP1.disabled = true;
         pointToP2.disabled = true;
-        scoreP2.classList.add('winner');
-        scoreP1.classList.add('loser');
+        scoreP2.classList.add('has-text-success');
+        scoreP1.classList.add('has-text-danger');
     }
 })
 
@@ -61,6 +61,6 @@ reset.addEventListener('click', function () {
     scoreP2.textContent = 0;
     pointsP1 = 0;
     pointsP2 = 0;
-    scoreP2.classList.remove('winner', 'loser');
-    scoreP1.classList.remove('winner', 'loser');
+    scoreP2.classList.remove('has-text-success', 'has-text-danger');
+    scoreP1.classList.remove('has-text-success', 'has-text-danger');
 })
