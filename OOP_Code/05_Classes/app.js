@@ -1,10 +1,12 @@
+//Classes are a template for creating objects. They encapsulate data with code to work on that data.
 class Color {
-	constructor(r, g, b, name) {
+	constructor(r, g, b, name) { //These are the properties of the object
 		this.r = r;
 		this.g = g;
 		this.b = b;
 		this.name = name;
 	}
+	//These are the methods of the object
 	innerRGB() {
 		const { r, g, b } = this;
 		return `${r}, ${g}, ${b}`;
