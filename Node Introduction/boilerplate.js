@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs');    //Kind of import library 
 const folderName = process.argv[2] || 'Project'
 
 // fs.mkdir('Dogs', { recursive: true }, (err) => {
