@@ -39,6 +39,9 @@ app.get('/', (req, res) => {
     res.render('comments/index', { comments })
 })
 
+app.get('/comments/new', (req, res) => {
+    res.render('comments/new')
+})
 
 
 app.listen(port, () => {
