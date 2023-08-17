@@ -58,7 +58,7 @@ app.post('/comments', (req, res) => {
 app.get('/comments/:id', (req, res) => {
     const { id } = req.params;
     const comment = comments.find(c => c.id === parseInt(id));
-    res.render('comments/show', { comments });
+    res.render('comments/show', { comment });
 })
 
 
