@@ -1,6 +1,39 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const path = require('path');
+
+app.use(express.urlencoded({ extended: true}))
+app.use(express.json())
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+
+const comments = [
+        {
+            username: 'Todd',
+            comment: 'blablablabalba1'
+        },
+        {
+            username: 'Skyler',
+            comment: 'blablablabalba2'
+        },
+        {
+            username: 'Kike',
+            comment: 'blablablabalba3'
+        },
+        {
+            username: 'Pepe',
+            comment: 'blablablabalba4'
+        },
+        {
+            username: 'Robert',
+            comment: 'blablablabalba5'
+        },
+];
+
+app.get('/comments', (req, res) => {
+    res.render('/comments/index')
+})
 
 app.get('/getpost', (req, res) => {
   res.send('Hello World!')
