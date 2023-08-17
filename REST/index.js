@@ -43,6 +43,13 @@ app.get('/comments/new', (req, res) => {
     res.render('comments/new')
 })
 
+app.post('/comments', (req, res) => {
+    const { username, comment } = req.body
+    comments.push({username, comment});
+    console.log(req.body);
+    res.send("It worked");
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
