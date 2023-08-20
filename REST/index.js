@@ -62,9 +62,6 @@ app.get('/comments/:id', (req, res) => {
     res.render('comments/show', { comment });
 })
 
-app.patch('/comments/:id'), (req, res) => {
-    res.send('updating')
-}
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
