@@ -7,11 +7,13 @@
 </head>
 <body>
     <h1>Edit comment</h1>
-    <form action="" method="post">
-        <section>
+    <form action="">    
+    <section>
             <label for="comment">Comment text:</label>
             <br>
-            <textarea id="comment" cols="30" rows="5" name="comment"><%= comment.comment %></textarea>
+            <textarea cols="30" rows="5" name="comment">
+                <%= comment.comment %>
+            </textarea>
         </section>
         <button>Submit</button>
     </form>
