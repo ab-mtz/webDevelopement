@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path');
+const { v4: uuid } = require('uuid');
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -10,27 +11,27 @@ app.set('view engine', 'ejs')
 
 const comments = [
         {
-            id: 1,
+            id: uuid(),
             username: 'Todd',
             comment: 'blablablabalba1'
         },
         {
-            id: 2,
+            id: uuid(),
             username: 'Skyler',
             comment: 'blablablabalba2'
         },
         {
-            id: 3,
+            id: uuid(),
             username: 'Kike',
             comment: 'blablablabalba3'
         },
         {
-            id: 4,
+            id: uuid(),
             username: 'Pepe',
             comment: 'blablablabalba4'
         },
         {
-            id: 5,
+            id: uuid(),
             username: 'Robert',
             comment: 'blablablabalba5'
         },
@@ -49,18 +50,21 @@ app.get('/comments/new', (req, res) => {
 })
 
 app.post('/comments', (req, res) => {
-    const { username, comment } = req.body
-    comments.push({username, comment});
+    const { username, comment} = req.body
+    comments.push({username, comment, id: uuid() });
     console.log(req.body);
     res.redirect('/comments')
 })
 
 app.get('/comments/:id', (req, res) => {
     const { id } = req.params;
-    const comment = comments.find(c => c.id === parseInt(id));
+    const comment = comments.find(c => c.id === id);
     res.render('comments/show', { comment });
 })
 
+app.patch('/comments/:id'), (req, res) => {
+    res.send('updating')
+}
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
