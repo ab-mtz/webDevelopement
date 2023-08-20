@@ -2,14 +2,17 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path');
+const methodOverride = require('method-override')
 const { v4: uuid } = require('uuid');
+
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(methodOverride('_method'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
-const comments = [
+let comments = [
         {
             id: uuid(),
             username: 'Todd',
@@ -78,8 +81,16 @@ app.patch('/comments/:id', (req,res) => {
 
 });
 
+app.delete('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    // const foundComment = comments.find(c => c.id === id); 
+    comments = comments.filter(c => c.id !== id) //Creates a new array where the deleted id doesn't appears anymore
+    res.redirect('/comments')
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
+  
 })
 
 // GET /comments - list all comments
