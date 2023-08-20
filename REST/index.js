@@ -83,9 +83,8 @@ app.patch('/comments/:id', (req,res) => {
 
 app.delete('/comments/:id', (req, res) => {
     const { id } = req.params;
-    // const foundComment = comments.find(c => c.id === id); 
-    comments = comments.filter(c => c.id !== id) //Creates a new array where the deleted id doesn't appears anymore
-    res.redirect('/comments')
+    comments = comments.filter(c => c.id !== id); //Creates a new array where the deleted id doesn't appears anymore
+    res.redirect('/comments');
 })
 
 app.listen(port, () => {
