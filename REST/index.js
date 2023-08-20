@@ -62,6 +62,20 @@ app.get('/comments/:id', (req, res) => {
     res.render('comments/show', { comment });
 })
 
+app.get('/comments/:id/edit', (req,res) => {
+    const comment = comments.find(c => c.id === id);
+    res.render('/comments/edit', {comment})
+});
+
+
+app.patch('/comments/:id', (req,res) => {
+    const { id } = req.params;
+    const newCommentText = req.body.comment;
+    const foundComment = comments.find(c => c.id === id); 
+    foundComment.comment = newCommentText;
+    res.redirect('/comments')
+
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
