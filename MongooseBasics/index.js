@@ -33,3 +33,28 @@ mongoose.connect('mongodb://127.0.0.1:27017/test')
             console.log("It worked");
             console.log(data);
         })
+
+    // Finding with Mongoose
+    // Movie.find({year: {$gte: 2001}}).then(data=> console.log(data))
+    //  Returns an array of content
+    // Movie.findById('64e37a39dbf6bd5df45b7936').then(m => console.log(m))
+
+
+    //Update
+
+    // Movie.updateOne({title: 'Amadeus'}, {year: 1984}).then(res => console.log(res))
+    // If there are many results it will only update the firstone
+
+        // Movie.updateOne({title: 'Amadeus'}, {year: 1984}).then(res => console.log(res))
+        // Will update all the coincidences
+
+        // Find one and update
+        // Movie.findOneAndUpdate({title: 'Amadeus'}, {score: 7.0}).then(m => console.log(m))
+        //Returns the data BEFORE the update
+        //We have to set the next if we want the updated data
+        // Movie.findOneAndUpdate({title: 'Amadeus'}, {score: 7.0}, {new: true}).then(m => console.log(m))
+
+
+    // Delete 
+        // Movie.deleteOne({score: 7}).then(msg => console.log(msg))
+        // Movie.findOneAndDelete({title:'Amadeus'}).then(msg => console.log(msg))
