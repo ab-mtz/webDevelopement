@@ -13,5 +13,5 @@ try {
     fs.writeFileSync(`${folderName}/styles.css`, '')
 } catch (e) {
     console.log("SOMETHING WENT WRONG!!!");
-    console.log(e);
+    console.log(e); 
 }
