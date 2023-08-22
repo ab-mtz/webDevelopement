@@ -13,9 +13,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/test')
         last: String
     })
 
-//Moongose virtuals
+// Moongose virtuals
     personSchema.virtual('fullName').get(function () {
-        return `${this.fist} ${this.last}`
+        return `${this.first} ${this.last}`
     })
 
 
