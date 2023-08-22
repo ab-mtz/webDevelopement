@@ -19,7 +19,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/shopApp')
         price: {
             type: Number,
             require: true,
-            min: 0
+            min: [0, 'Price must be positive'] //This validates that the input value is correct
 
         },
         onSale: { 
