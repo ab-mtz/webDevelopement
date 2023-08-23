@@ -33,8 +33,7 @@ app.post('/products', async (req, res) => {
     const newProduct = new Product(req.body);
     const product = await newProduct.save();
     console.log(newProduct)
-    res.redirect(`products/${newProduct._id}`)//, { product })
-    // console.log("posted")
+    res.redirect(`products/${newProduct._id}`)
 })
 
 app.get('/products/:id', async (req, res) => {
@@ -42,6 +41,11 @@ app.get('/products/:id', async (req, res) => {
     const product = await Product.findOne({ _id: id }) //findByID(id) gives next error: Crbug/1173575, non-JS module files deprecated
     // console.log(product)
     res.render('products/show' , { product })
+})
+
+app.get('/products/:id/edit', async (req,res) => {
+    const product = await Product.findOne({ _id: id });
+    res.render('products/edit')
 })
 
 app.listen(3000, () => {
