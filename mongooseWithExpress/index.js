@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override')
 
 const Product = require('./models/product')
 
@@ -54,7 +55,9 @@ app.get('/products/:id/edit', async (req,res) => {
 
 app.put('/products/:id/edit', async (req,res) => {
     const { id } = req.params;
-    const product = await Product.findOne({ _id: id });
+    const product = Product.findByIdAndUpdate(id, req.body, { runValidatos: true, new: true })
+    console.log(req.body);
+    res.send('Put')
 })
 
 app.listen(3000, () => {
