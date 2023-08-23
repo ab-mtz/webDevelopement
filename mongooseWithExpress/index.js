@@ -24,6 +24,10 @@ app.get('/products', async (req, res) => {
     res.render('products/index', { products })
 })
 
+app.get('/products/new', (req,res) => {
+    res.render('products/new')
+})
+
 app.get('/products/:id', async (req, res) => {
     const { id } = req.params;
     const product = await Product.findOne({ _id: id }) //findByID(id) gives next error: Crbug/1173575, non-JS module files deprecated
