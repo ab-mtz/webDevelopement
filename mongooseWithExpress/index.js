@@ -17,6 +17,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}))  //when we want request info of the body to post
+app.use(methodOverride('_method'))
 
 
 //An Async callback for a route where we await some moongose operation 
@@ -47,6 +48,13 @@ app.get('/products/:id/edit', async (req,res) => {
     const { id } = req.params;
     const product = await Product.findOne({ _id: id });
     res.render('products/edit', { product })
+})
+
+//WE have to decide between put or patch request. Put: overwrite all; Patch: change a portion of the document
+
+app.put('/products/:id/edit', async (req,res) => {
+    const { id } = req.params;
+    const product = await Product.findOne({ _id: id });
 })
 
 app.listen(3000, () => {
