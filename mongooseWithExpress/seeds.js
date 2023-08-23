@@ -11,3 +11,16 @@ mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
         console.log("Mongo conection error")
         console.log(err)
     })
+
+    const p = new Product ({
+        name: 'Grape fruit',
+        price: 1,
+        category:'fruit'
+    })
+
+    p.save().then(p => {
+        console.log(p)
+    })
+    .catch(e => {
+        console.log(e)
+    })
