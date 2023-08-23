@@ -24,13 +24,12 @@ app.get('/products', async (req, res) => {
     res.render('products/index', { products })
 })
 
-app.get('/products/:id', async (req, res) =>{
+app.get('/products/:id', async (req, res) => {
     const { id } = req.params;
-    const product = await Product.findByID(id)
-    console.log(product)
-    res.render('producst/show' , { product })
-}
-)
+    const product = await Product.findOne({ _id: id }) //findByID(id) gives next error: Crbug/1173575, non-JS module files deprecated
+    // console.log(product)
+    res.render('products/show' , { product })
+})
 
 app.listen(3000, () => {
     console.log("App listening on port 3000")
