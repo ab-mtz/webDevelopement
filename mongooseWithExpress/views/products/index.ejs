@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All products</title>
+    <title><%= category %> products</title>
 </head>
 <body>
-    <h1>All products</h1>
+    <h1><%= category %> products</h1>
     <ul>
         <% for(let product of products) { %>
         <li><a href="/products/<%= product._id%>"><%= product.name %></a></li> 
@@ -14,5 +14,8 @@
     </ul>
 
 <a href="/products/new">Add Product</a>
+<% if(category !== 'ALL') {%>
+<a href="/products">All products</a>
+<% }  %>
 </body>
 </html>
