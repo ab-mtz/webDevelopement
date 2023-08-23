@@ -20,6 +20,9 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}))  //when we want request info of the body to post
 app.use(methodOverride('_method'))
 
+//Variable definitions
+const categories = ['fruit', 'vegetables', 'dairy']
+
 
 //An Async callback for a route where we await some moongose operation 
 app.get('/products', async (req, res) => {
@@ -28,7 +31,7 @@ app.get('/products', async (req, res) => {
 })
 
 app.get('/products/new', (req,res) => {
-    res.render('products/new')
+    res.render('products/new', { categories })
 })
 
 app.post('/products', async (req, res) => {
@@ -52,12 +55,11 @@ app.get('/products/:id/edit', async (req,res) => {
 })
 
 //WE have to decide between put or patch request. Put: overwrite all; Patch: change a portion of the document
-
-app.put('/products/:id/edit', async (req,res) => {
+app.put('/products/:id', async (req, res) => {
     const { id } = req.params;
-    const product = Product.findByIdAndUpdate(id, req.body, { runValidatos: true, new: true })
+    const product = await Product.findByIdAndUpdate(id, req.body, { runValidatos: true, new: true })
     console.log(req.body);
-    res.send('Put')
+    res.redirect(`/products/${product._id}`);
 })
 
 app.listen(3000, () => {
