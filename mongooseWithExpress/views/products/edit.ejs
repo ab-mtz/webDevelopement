@@ -14,9 +14,10 @@
         <input type="number" name="price" placeholder="<%=product.price%>" value="<%=product.price%>">
         <label for="category">Category: </label>
         <select name="category" id="">
-            <option value="fruit">fruit</option> <!--We could use the next to make a comparation <%= if product.category === 'fruit' ? 'selected': ''%>-->
-            <option value="vegetable">vegetable</option>
-            <option value="dairy">dairy</option>
+            <!-- <option value="fruit">fruit</option> We could use the next to make a comparation < % = if product.category === 'fruit' ? 'selected': '' % > -->
+            <% for(let category of categories) { %>
+                <option value="<%=category%>" <%= product.category === category ? 'selected': '' %>> <%=category%></option>
+            <% } %>
         </select>
         <button>Edit product</button>
         <a href="/products/<%=product._id%>">Back to product</a>

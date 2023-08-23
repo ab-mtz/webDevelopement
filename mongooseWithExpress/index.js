@@ -51,7 +51,7 @@ app.get('/products/:id', async (req, res) => {
 app.get('/products/:id/edit', async (req,res) => {
     const { id } = req.params;
     const product = await Product.findOne({ _id: id });
-    res.render('products/edit', { product })
+    res.render('products/edit', { product, categories })
 })
 
 //WE have to decide between put or patch request. Put: overwrite all; Patch: change a portion of the document
