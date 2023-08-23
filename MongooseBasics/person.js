@@ -18,5 +18,14 @@ mongoose.connect('mongodb://127.0.0.1:27017/test')
         return `${this.first} ${this.last}`
     })
 
+//Defining Middleware: Running some code before or after 
+    personSchema.pre('save', async function () {
+        console.log("About to save")
+    })
+//
+    personSchema.post('save', async function () {
+        console.log("Just saved")
+    })
+
 
     const Person = mongoose.model('Person', personSchema);
