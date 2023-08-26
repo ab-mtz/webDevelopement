@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 
+
+// const morgan = require('morgan');
+
 // app.use allow us to run code in everey single request
 app.use(morgan('tiny'))
 
