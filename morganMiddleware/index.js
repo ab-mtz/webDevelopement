@@ -1,10 +1,9 @@
-import express from 'express';
+const express = require('express');
 const app = express();
-import morgan from 'morgan';
+const morgan = require('morgan');
 
 // app.use allow us to run code in everey single request
-app.use(morgan('tiny')
-)
+app.use(morgan('tiny'))
 
 app.get('/', (req, res)  => {
     res.send('Homepage')
