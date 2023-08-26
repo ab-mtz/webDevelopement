@@ -23,6 +23,14 @@ app.use(morgan('dev'))
 //     next();
 // })
 
+const verifyPassword = (req, res, next) => {
+    const { password } = req.query;
+    if (password === 'chickennugget') {
+        next();
+    }
+    res.send('Sorry you need a password')
+}
+
 app.use((req, res, next) => {
         console.log('middleware used')
         next();
@@ -44,12 +52,16 @@ app.get('/dogs', (req, res) => {
 })
 
 
+app.get('/secret', verifyPassword, (req, res) => {
+    res.send('My secret is.....')
+})
+
+
 // We can use app.use to manage 404 
 app.use((req, res) => {
     // res.send("Sorry, we can't find that page")
     res.status(404).send("Not found")
 })
-
 app.listen(3000, () => {
     console.log('App serving on localhost: 3000')
 })
