@@ -7,24 +7,30 @@ const morgan = require('morgan');
 
 // app.use allow us to run code in everey single request
 app.use(morgan('dev'))
-app.use((req, res, next) => {
-    console.log(req.method.toUpperCase(), req.path)
-    next();
-})
+// app.use((req, res, next) => {
+//     console.log(req.method.toUpperCase(), req.path)
+//     next();
+// })
 
 
 //Function that works on every request
+// app.use((req, res, next) => {
+//     console.log('middleware used')
+//     next();
+// })
+// app.use((req, res, next) => {
+//     console.log('middle ware 2 used')
+//     next();
+// })
+
 app.use((req, res, next) => {
-    console.log('middleware used')
-    next();
-})
-app.use((req, res, next) => {
-    console.log('middle ware 2 used')
-    next();
+        console.log('middleware used')
+        next();
 })
 
+
 app.use('/dogs', (req, res, next) => {
-    console.log("another middleware that only runs trough this path")
+    console.log(req.query)
     next();
 })
 
@@ -36,6 +42,7 @@ app.get('/', (req, res)  => {
 app.get('/dogs', (req, res) => {
     res.send('home')
 })
+
 
 // We can use app.use to manage 404 
 app.use((req, res) => {
