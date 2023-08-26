@@ -6,7 +6,7 @@ const morgan = require('morgan');
 // const morgan = require('morgan');
 
 // app.use allow us to run code in everey single request
-app.use(morgan('tiny'))
+app.use(morgan('dev'))
 
 app.get('/', (req, res)  => {
     res.send('Homepage')
