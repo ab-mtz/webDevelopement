@@ -37,6 +37,11 @@ app.get('/dogs', (req, res) => {
     res.send('home')
 })
 
+// We can use app.use to manage 404 
+app.use((req, res) => {
+    res.send("Sorry, we can't find that page")
+})
+
 app.listen(3000, () => {
     console.log('App serving on localhost: 3000')
 })
