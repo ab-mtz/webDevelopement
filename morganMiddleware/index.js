@@ -7,6 +7,26 @@ const morgan = require('morgan');
 
 // app.use allow us to run code in everey single request
 app.use(morgan('dev'))
+app.use((req, res, next) => {
+    console.log(req.method.toUpperCase(), req.path)
+    next();
+})
+
+
+//Function that works on every request
+app.use((req, res, next) => {
+    console.log('middleware used')
+    next();
+})
+app.use((req, res, next) => {
+    console.log('middle ware 2 used')
+    next();
+})
+
+app.use('/dogs', (req, res, next) => {
+    console.log("another middleware that only runs trough this path")
+    next();
+})
 
 app.get('/', (req, res)  => {
     res.send('Homepage')
