@@ -22,13 +22,17 @@ const verifyPassword = (req, res, next) => {
     if (password === 'chickennugget') {
         next();
     }
-    res.send('Sorry you need a password')
+    // res.send('Sorry you need a password')
+    throw new Error('Pasword Required')
 }
 
 app.get('/', (req, res)  => {
     res.send('Homepage')
 })
 
+app.get('/error', (req, res) => {
+    chicken.fly()
+})
 
 app.get('/dogs', (req, res) => {
     res.send('home')
@@ -43,8 +47,9 @@ app.get('/secret', verifyPassword, (req, res) => {
 // We can use app.use to manage 404 
 app.use((req, res) => {
     // res.send("Sorry, we can't find that page")
+
     res.status(404).send("Not found")
 })
-app.listen(3000, () => {
-    console.log('App serving on localhost: 3000')
+app.listen(3001, () => {
+    console.log('App serving on localhost: 3001')
 })
