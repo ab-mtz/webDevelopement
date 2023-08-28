@@ -34,6 +34,7 @@ app.get('/error', (req, res) => {
     chicken.fly()
 })
 
+
 app.get('/dogs', (req, res) => {
     res.send('home')
 })
@@ -50,6 +51,15 @@ app.use((req, res) => {
 
     res.status(404).send("Not found")
 })
+
+app.use((err, req, res, next) => {
+    console.log("*********************************************")
+    console.log("********************ERROR********************")
+    console.log("*********************************************")
+    console.log(err)
+    next(err)
+})
+
 app.listen(3001, () => {
     console.log('App serving on localhost: 3001')
 })
