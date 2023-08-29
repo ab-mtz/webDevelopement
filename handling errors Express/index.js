@@ -53,12 +53,18 @@ app.use((req, res) => {
     res.status(404).send("Not found")
 })
 
+// app.use((err, req, res, next) => {
+//     const { status = 404 } = err;
+//     console.log("*********************************************")
+//     console.log("********************ERROR********************")
+//     console.log("*********************************************")
+//     console.log(err)
+//     next(err)
+// })
+
 app.use((err, req, res, next) => {
-    console.log("*********************************************")
-    console.log("********************ERROR********************")
-    console.log("*********************************************")
-    console.log(err)
-    next(err)
+    const { status = 500, message = 'Something went wrong' } = err;
+    res.status(status).send(message)
 })
 
 app.listen(3001, () => {
