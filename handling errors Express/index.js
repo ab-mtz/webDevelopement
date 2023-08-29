@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const AppError = require('./AppError')
 
 
 app.use(morgan('dev'))
@@ -23,7 +24,7 @@ const verifyPassword = (req, res, next) => {
         next();
     }
     // res.send('Sorry you need a password')
-    throw new Error('Pasword Required')
+    throw new AppError('Pasword Required!', 401)
 }
 
 app.get('/', (req, res)  => {
@@ -63,3 +64,4 @@ app.use((err, req, res, next) => {
 app.listen(3001, () => {
     console.log('App serving on localhost: 3001')
 })
+
